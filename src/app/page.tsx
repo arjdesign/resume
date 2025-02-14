@@ -59,6 +59,62 @@ interface Reference {
   relationship: string;
 }
 
+// Add Professional Membership interface
+interface ProfessionalMembership {
+  organization: string;
+  period: string;
+  role?: string;
+}
+
+// Add Teaching Experience interface
+interface TeachingExperience {
+  position: string;
+  course: string;
+  institution: string;
+  period: string;
+  responsibilities: string[];
+  impact?: string;
+}
+
+// Add Proposal Development interface
+interface ProposalDevelopment {
+  title: string;
+  agency: string;
+  period: string;
+  amount: string;
+  role: string;
+  status: 'funded' | 'in-review' | 'completed';
+  description: string[];
+}
+
+// Add Presentation interface
+interface Presentation {
+  title: string;
+  event: string;
+  location: string;
+  date: string;
+  type: 'conference' | 'workshop' | 'extension' | 'invited';
+  description?: string[];
+}
+
+// Add Media Coverage interface
+interface MediaCoverage {
+  type: 'tv' | 'news' | 'social' | 'speaker';
+  title: string;
+  outlet: string;
+  subscribers?: string;
+  link: string;
+  description?: string;  // Add this optional property
+}
+
+// Add Community Service interface
+interface CommunityService {
+  role: string;
+  organization: string;
+  period: string;
+  description: string[];
+}
+
 const education = [
   {
     degree: 'Ph.D., Agricultural and Biological Engineering',
@@ -160,9 +216,54 @@ const publications: Publication[] = [
     doi: '10.21608/ejp.2022.161763.1070'
   },
   {
+    title: 'Downy mildew of cucurbits caused by Pseudoperonospora cubensis: Disease profile and management',
+    authors: 'Rhouma, A., Shah, K., Pant, D., & Khrieba, M.',
+    journal: '2, 8–15',
+    year: '2022'
+  },
+  {
+    title: 'Access to Solar Energy for Livelihood Security in Odisha, India',
+    authors: 'Giri, N. C., Das, S., Pant, D., Bhadoria, V. S., Mishra, D. P., Mahalik, G., & Mrabet, R.',
+    journal: 'Signals, Machines and Automation: Select Proceedings of SIGMA 2022, 1023, 235',
+    year: '2023'
+  },
+  {
+    title: 'Secure Blockchain-Based Intelligent Internet of Things',
+    authors: 'Das, S., Giri, N. C., Mazumdar, K., Bhowmick, P., Tiwari, H., Pant, D., & Mehta, S.',
+    journal: 'Security Implementation in Internet of Medical Things (pp. 23-36). CRC Press',
+    year: '2023'
+  },
+  {
+    title: 'Access to Solar Energy for Livelihood Security in Odisha, India',
+    authors: 'Giri, N. C., Das, S., Pant, D., Bhadoria, V. S., Mishra, D. P., Mahalik, G., & Mrabet, R.',
+    journal: 'International Conference on Signals, Machines, and Automation (pp. 235-242). Singapore: Springer Nature Singapore',
+    year: '2022'
+  },
+  {
+    title: 'Alternate Bearing in Fruit Crops: Causes and Control Measures',
+    authors: 'Jangid, R., Kumar, A., Masu, M., Kanade, N., & Pant, D.',
+    journal: 'Asian Journal of Agricultural and Horticultural Research, 10–19',
+    year: '2023',
+    doi: '10.9734/ajahr/2023/v10i1217'
+  },
+  {
+    title: 'An overview on possible management strategies for coffee white stem Borer Xylotrechus quadripes Chevrolat (Coleoptera: Cerambycidae) in Nepal',
+    authors: 'Pandey, M., Kayastha, P., Khanal, S., Shrestha, S., Thakur, G., Adhikari, K., Shah, K., Pant, D., & Khanal, D.',
+    journal: 'Heliyon, 8',
+    year: '2022',
+    doi: '10.1016/j.heliyon.2022.e10445'
+  },
+  {
     title: 'Forage production from intensive grazing of cover crops and impact on soil health',
-    authors: 'Pant, D., Duiker, Sjoerd W., Bryant Ray B & White, Charles M.',
+    authors: 'Pant, Divya., Duiker, Sjoerd W., Bryant Ray B & White, Charles M.',
     journal: 'Agriculture, Ecosystems & Environment',
+    year: '2022',
+    status: 'in-review'
+  },
+  {
+    title: 'Disease resistance triggered by plant immunity system: concept and mechanism',
+    authors: 'Bhatta, M., Pant, Divya., Shah, K.K., Giri, N.C., Rhouma, A., & Shrestha, J.',
+    journal: 'Phytopathology Research. BMC',
     year: '2022',
     status: 'in-review'
   }
@@ -170,28 +271,91 @@ const publications: Publication[] = [
 
 const awards: Award[] = [
   {
-    title: 'NSF Innovation in Graduate Education Fellowship',
-    organization: 'National Science Foundation',
-    year: '2023',
-    description: 'Selected for prestigious NSF fellowship to promote STEM education collaboration between US and Nepal.'
+    title: "Harold V. and Velma B. Walton Doctoral Student Endowment in Agricultural and Biological Engineering Award",
+    organization: "Penn State University",
+    year: "2024",
+    description: "Awarded for outstanding performance and accomplishments as doctoral students"
   },
   {
-    title: 'Outstanding Graduate Student Award',
-    organization: 'Penn State College of Agricultural Sciences',
-    year: '2022',
-    description: 'Recognized for exceptional academic performance and research contributions.'
+    title: "Award of Excellence and 3rd Prize for Poster Competition",
+    organization: "Bio-renewable Symposium",
+    year: "2024",
+    description: "Awarded the 2024 award of excellence along with 3rd prize for the poster competition"
   },
   {
-    title: 'Graduate Student Travel Award',
-    organization: 'American Society of Agronomy',
-    year: '2021',
-    description: 'Awarded to present research at ASA, CSSA, SSSA International Annual Meeting.'
+    title: "3rd Prize for Poster Competition",
+    organization: "Northeast Agricultural & Biological Engineering Conference",
+    year: "2024",
+    description: "Awarded at the 2024 Northeast Agricultural & Biological Engineering Conference, Pennsylvania"
   },
   {
-    title: 'University Gold Medal',
-    organization: 'Tribhuvan University',
-    year: '2018',
-    description: 'Awarded for achieving highest GPA in B.Sc. Agriculture.'
+    title: "NSF Innovation in Graduate Education Program Grant",
+    organization: "National Science Foundation",
+    year: "2023",
+    description: "Awarded $6000-$8000 grant for piloting innovative STEM graduate education approaches"
+  },
+  {
+    title: "USDA Travel Grant",
+    organization: "USDA",
+    year: "2023",
+    description: "Awarded $1000 to support research contributions in agricultural sustainability at International Symposium on Sustainable Systems and Technology"
+  },
+  {
+    title: "United Nations Forum on Forests Invitation",
+    organization: "United Nations",
+    year: "2023",
+    description: "Invited to attend the 18th Session focused on forest conservation and sustainable management"
+  },
+  {
+    title: "Community Service Recognition",
+    organization: "City of New York",
+    year: "2023",
+    description: "Awarded certificate for commitment and dedication to serving diverse communities"
+  },
+  {
+    title: "Graduate Recognition and Honors Award",
+    organization: "Lions Club of Baltimore Nepalese",
+    year: "2022"
+  },
+  {
+    title: "Second Runner Up",
+    organization: "Miss Nepal North America",
+    year: "2022"
+  },
+  {
+    title: "Climate Action4Clean Air Business Pitching Competition Finalist",
+    organization: "ICIMOD & Antarprerana Pvt. Ltd.",
+    year: "2021"
+  },
+  {
+    title: "Outstanding Academic Achievement and Leadership Award",
+    organization: "Gamma Sigma Delta Honor Society for Agricultural Sciences",
+    year: "2021",
+    description: "Awarded for outstanding academic achievement and leadership potential"
+  },
+  {
+    title: "Ag Springboard Student Business Pitch Contest - Second Prize",
+    organization: "Penn State University",
+    year: "2021",
+    description: "Awarded $2500 as winning prize for startup 'Carbon Compost'"
+  },
+  {
+    title: "International Agriculture Scholarship",
+    organization: "Penn State University",
+    year: "2021",
+    description: "Awarded $1717 for contribution to international agriculture development"
+  },
+  {
+    title: "College of Agricultural Sciences General Scholarship",
+    organization: "Penn State University",
+    year: "2019-2021",
+    description: "Awarded for maintaining good academic records and leadership"
+  },
+  {
+    title: "Merit Scholarship and Outstanding Student Award",
+    organization: "Adarsh Vidya Niketan Secondary School",
+    year: "2000-2018",
+    description: "Awarded merit scholarship from primary school to bachelor's degree"
   }
 ];
 
@@ -261,6 +425,224 @@ const references: Reference[] = [
   }
 ];
 
+// Add professional memberships data
+const professionalMemberships: ProfessionalMembership[] = [
+  {
+    organization: "American Society of Agricultural and Biological Engineers",
+    period: "2024-Present"
+  },
+  {
+    organization: "Goodwill Ambassador under Miss Nepal North America",
+    period: "2022-Present"
+  },
+  {
+    organization: "Ag Springboard Alum Network-Entrepreneurship & Innovation- Penn State University",
+    period: "2021-Present"
+  },
+  {
+    organization: "Graduate Women in Engineering",
+    period: "2022-Present"
+  },
+  {
+    organization: "The International Symposium on Sustainable Systems and Technology",
+    period: "2022-Present"
+  },
+  {
+    organization: "Crop Science Society of America",
+    period: "2020-2022"
+  },
+  {
+    organization: "American Society of Agronomy",
+    period: "2020-2022"
+  },
+  {
+    organization: "Soil Science Society of America",
+    period: "2020-2022"
+  },
+  {
+    organization: "Amnesty International Nepal",
+    period: "2014-Present"
+  },
+  {
+    organization: "Nepal Red Cross Society",
+    period: "2013-Present"
+  }
+];
+
+// Add teaching experience data
+const teachingExperience: TeachingExperience[] = [
+  {
+    position: "Graduate Teaching Assistant",
+    course: "BE 308: Engineering Elements of Biochemistry and Microbiology",
+    institution: "Penn State University",
+    period: "Spring 2024",
+    responsibilities: [
+      "Lead laboratory sessions for undergraduate bioengineering students",
+      "Guide students through experimental procedures and data analysis",
+      "Grade assignments and provide constructive feedback",
+      "Hold office hours for student consultations"
+    ],
+    impact: "Supporting 60+ undergraduate students in developing essential laboratory skills"
+  },
+  {
+    position: "Graduate Teaching Assistant",
+    course: "ASM 327: Soil and Water Resource Management",
+    institution: "Penn State University",
+    period: "Fall 2023",
+    responsibilities: [
+      "Assisted in course development and material preparation",
+      "Conducted field demonstrations of soil and water management techniques",
+      "Facilitated student group projects and discussions",
+      "Evaluated student presentations and reports"
+    ],
+    impact: "Enhanced learning experience for 45 students through practical demonstrations"
+  },
+  {
+    position: "Graduate Teaching Assistant",
+    course: "AGECO 144: Organic Agriculture",
+    institution: "Penn State University",
+    period: "Aug 2021-Dec 2021",
+    responsibilities: [
+      "Assisted with undergraduate class instruction",
+      "Prepared course materials and resources",
+      "Evaluated student assignments and provided feedback",
+      "Supported students in understanding organic agriculture concepts"
+    ]
+  },
+  {
+    position: "Teaching Assistant",
+    course: "Sustainable Agriculture System",
+    institution: "Institute of Agriculture and Animal Science, Tribhuvan University",
+    period: "Jan 2016-Dec 2017",
+    responsibilities: [
+      "Assisted with undergraduate class (3 credits)",
+      "Conducted laboratory sessions",
+      "Supervised student research projects",
+      "Prepared laboratory materials and equipment"
+    ]
+  }
+];
+
+// Add proposal development data after skills data
+const proposalDevelopment: ProposalDevelopment[] = [
+  {
+    title: "ECO-CBET: Transforming the Nitrogen Bioeconomy",
+    agency: "National Science Foundation (NSF)",
+    period: "2023-2025",
+    amount: "$1.7M",
+    role: "Lead Life Cycle Analyst",
+    status: "funded",
+    description: [
+      "Leading comprehensive Life Cycle Analysis (LCA) for sustainable nitrogen management",
+      "Evaluating environmental impacts of novel nitrogen recovery technologies",
+      "Collaborating with interdisciplinary team of researchers and industry partners",
+      "Developing sustainable solutions for nitrogen pollution reduction"
+    ]
+  },
+  {
+    title: "C-CHANGE: Creating Circular Bio-Carbon and Agriculture Network for Greenhouse Gas Emission",
+    agency: "USDA NIFA",
+    period: "2022-2024",
+    amount: "$10M",
+    role: "Graduate Research Assistant",
+    status: "funded",
+    description: [
+      "Conducting Life Cycle Assessment for carbon farming initiatives",
+      "Analyzing greenhouse gas emission reduction potential",
+      "Evaluating economic viability of bio-carbon technologies",
+      "Contributing to policy recommendations for sustainable agriculture"
+    ]
+  },
+  {
+    title: "Sustainable Energy and Waste Management in Nepal",
+    agency: "NSF Innovation in Graduate Education",
+    period: "2023-2024",
+    amount: "$25,000",
+    role: "Principal Investigator",
+    status: "completed",
+    description: [
+      "Led international collaboration between Penn State and Tribhuvan University",
+      "Managed anaerobic digester plant processing 30 tons/day of organic waste",
+      "Conducted Social Life Cycle Assessment of biogas systems",
+      "Established Nepal's first carbon farming pilot project"
+    ]
+  }
+];
+
+// Add presentations data after proposal development data
+const presentations: Presentation[] = [
+  {
+    title: "Life cycle assessment of duckweed based manure treatment system for nutrient circularity",
+    event: "Biorenewable Symposium",
+    location: "Pennsylvania",
+    date: "April 18-19, 2024",
+    type: "conference"
+  },
+  {
+    title: "Life cycle assessment of duckweed based manure treatment system for nutrient circularity",
+    event: "Penn State Interdisciplinary Environmental Research Symposium",
+    location: "Pennsylvania",
+    date: "April 5-6, 2024",
+    type: "conference"
+  },
+  {
+    title: "Life cycle assessment of pelletized duckweed soil amendment derived from farm manure wastewater",
+    event: "International Symposium on Sustainable Systems and Technology",
+    location: "Colorado",
+    date: "June 12-15, 2023",
+    type: "conference"
+  },
+  {
+    title: "Life cycle assessment of pelletized duckweed soil amendment derived from farm manure wastewater",
+    event: "C-CHANGE: Grass2Gas Annual Meeting",
+    location: "Lancaster, Pennsylvania",
+    date: "May 31-June 2, 2023",
+    type: "conference"
+  },
+  {
+    title: "Life cycle assessment of integrated duckweed based farm manure waste management",
+    event: "Biorenewables symposium",
+    location: "Pennsylvania",
+    date: "April 21, 2023",
+    type: "conference"
+  },
+  {
+    title: "Life Cycle Assessment of Duckweed Based Manure Treatment System at Farm Level",
+    event: "Department of Agricultural Engineering, Penn State University",
+    location: "State College, PA",
+    date: "December 7, 2023",
+    type: "invited"
+  },
+  {
+    title: "Holistic approach to livestock and waste management for sustainability",
+    event: "International Conference 'Sudurpaschim Studies: Heritage, Innovation, and Transformation'",
+    location: "Far Western University",
+    date: "December 13-14, 2022",
+    type: "conference"
+  },
+  {
+    title: "Forage production from intensive grazing of cover crops and impact on soil health",
+    event: "Penn State University Departmental Seminar",
+    location: "Penn State University",
+    date: "May 2022",
+    type: "invited"
+  },
+  {
+    title: "Impact of prescribed grazing of cover crops on soil health and forage production",
+    event: "Keystone Crop and Soil Conference",
+    location: "Pennsylvania",
+    date: "October 19-20, 2021",
+    type: "conference"
+  },
+  {
+    title: "Management Intensive Grazing of Cover Crops for Soil Health and Profitability",
+    event: "ASA-CSSA-SSSA Annual Meeting",
+    location: "Virtual",
+    date: "November 9-13, 2020",
+    type: "conference"
+  }
+];
+
 // Add navigation data
 const navigationItems: NavItem[] = [
   {
@@ -326,6 +708,143 @@ const navigationItems: NavItem[] = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
       </svg>
     )
+  },
+  {
+    id: 'teaching',
+    label: 'Teaching',
+    icon: (
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+      </svg>
+    )
+  },
+  {
+    id: 'memberships',
+    label: 'Memberships',
+    icon: (
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+      </svg>
+    )
+  },
+  {
+    id: 'proposals',
+    label: 'Proposals',
+    icon: (
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+      </svg>
+    )
+  },
+  {
+    id: 'presentations',
+    label: 'Presentations',
+    icon: (
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H14" />
+      </svg>
+    )
+  },
+  {
+    id: 'media',
+    label: 'Media Coverage',
+    icon: (
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+      </svg>
+    )
+  },
+  {
+    id: 'community',
+    label: 'Community Service',
+    icon: (
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+      </svg>
+    )
+  }
+];
+
+// Add media coverage data
+const mediaCoverage: MediaCoverage[] = [
+  {
+    type: 'tv',
+    title: 'Academic and Entrepreneurial Excellence Interview',
+    outlet: 'News24 Nepal',
+    subscribers: '3.17 million',
+    link: 'Link 🔗'
+  },
+  {
+    type: 'tv',
+    title: 'Academic and Entrepreneurial Excellence Interview',
+    outlet: 'Space 4K Television',
+    subscribers: '340k',
+    link: 'Link 🔗'
+  },
+  {
+    type: 'tv',
+    title: 'Academic and Entrepreneurial Excellence Interview',
+    outlet: 'Prime Times HD',
+    subscribers: '1.47 million',
+    link: 'Link 🔗'
+  },
+  {
+    type: 'tv',
+    title: 'Academic and Entrepreneurial Excellence Interview',
+    outlet: 'Yoho Television HD',
+    subscribers: '1.01 million',
+    link: 'Link 🔗'
+  },
+  {
+    type: 'tv',
+    title: 'Academic and Entrepreneurial Excellence Interview',
+    outlet: 'Ramailo Cha',
+    subscribers: '1.45 million',
+    link: 'Link 🔗'
+  },
+  {
+    type: 'social',
+    title: 'State of State speaker interview',
+    outlet: 'Blue & White Society Facebook',
+    link: 'State of State speaker, Divya Pant | Join us now, live to hear from State of State speaker, Divya Pant, about her experience as an international student! | By Blue & White SocietyFacebook | Facebook'
+  }
+];
+
+// Add community service data
+const communityService: CommunityService[] = [
+  {
+    role: "Goodwill Tourism Ambassador",
+    organization: "Nepal Tourism Board under Miss Nepal North America",
+    period: "2022-Present",
+    description: [
+      "Placed Second Runner up for Miss Nepal North America",
+      "Featured by the largest social media account in Nepal",
+      "Bagged Miss Talent Trophy for Miss Nepal North America, 2022",
+      "Showcased Nepali language, ethnicities, folk dance, traditions, culture, and food among US government representatives",
+      "Strengthened Nepal-US relations through cultural promotion in America"
+    ]
+  },
+  {
+    role: "Joint Secretary",
+    organization: "Youth for Agri Welfare (YFAW)",
+    period: "2015-2019",
+    description: [
+      "Scaled YFAW's team members, community members served, and collaborators three times during tenure as founding member",
+      "Developed agriculture training packages for 52 resource-poor farmers in Parbat, Lamjung, and Tahahu districts, Nepal",
+      "Coordinated training on 'Integrated Farming and Sustainable Farm Design' for farmers",
+      "Promoted successful agro-enterprises: Metro Kheti, Dudaile Farm, Friday discussion forum"
+    ]
+  },
+  {
+    role: "CEO and Founder",
+    organization: "Carbon Away & Global Business Partner of Waste to Energy Project",
+    period: "2022-Present",
+    description: [
+      "Developed a waste-to-energy project in Nepal",
+      "Managed partnerships with local and international stakeholders",
+      "Developed business strategies for sustainable waste management",
+      "Implemented community engagement programs"
+    ]
   }
 ];
 
@@ -972,6 +1491,412 @@ export default function Home() {
             </div>
           </motion.div>
         </section>
+
+        <section id="teaching" className="py-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="container mx-auto px-4"
+          >
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-white mb-8 tracking-tight">
+                Teaching Experience
+              </h2>
+              <div className="space-y-6">
+                {teachingExperience.map((teaching, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="relative pl-8 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-primary-200 before:to-primary-100 dark:before:from-primary-700 dark:before:to-primary-900 before:rounded-full"
+                  >
+                    <div className="absolute left-0 top-0 w-2 h-2 bg-primary-400 dark:bg-primary-300 rounded-full -translate-x-[3px]" />
+                    <div className="bg-white dark:bg-gray-800/50 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow">
+                      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4">
+                        <div>
+                          <h3 className="text-xl font-semibold text-secondary-900 dark:text-white">
+                            {teaching.position}
+                          </h3>
+                          <p className="text-lg text-primary-600 dark:text-primary-400 mt-1">
+                            {teaching.course}
+                          </p>
+                          <p className="text-secondary-600 dark:text-secondary-400">
+                            {teaching.institution}
+                          </p>
+                        </div>
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200 h-fit">
+                          {teaching.period}
+                        </span>
+                      </div>
+                      <div className="space-y-4">
+                        <ul className="space-y-2">
+                          {teaching.responsibilities.map((responsibility, idx) => (
+                            <motion.li
+                              key={idx}
+                              initial={{ opacity: 0 }}
+                              whileInView={{ opacity: 1 }}
+                              viewport={{ once: true }}
+                              transition={{ delay: idx * 0.1 }}
+                              className="text-secondary-600 dark:text-secondary-300 flex items-start"
+                            >
+                              <span className="mr-2 text-primary-400 dark:text-primary-300">•</span>
+                              {responsibility}
+                            </motion.li>
+                          ))}
+                        </ul>
+                        {teaching.impact && (
+                          <p className="text-primary-600 dark:text-primary-400 italic mt-2">
+                            {teaching.impact}
+                          </p>
+                        )}
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </section>
+
+        <section id="memberships" className="py-16 bg-white dark:bg-gray-900">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="container mx-auto px-4"
+          >
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-white mb-8 tracking-tight">
+                Professional Memberships
+              </h2>
+              <div className="grid grid-cols-1 gap-6">
+                {professionalMemberships.map((membership, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="relative pl-8 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-primary-200 before:to-primary-100 dark:before:from-primary-700 dark:before:to-primary-900 before:rounded-full"
+                  >
+                    <div className="absolute left-0 top-0 w-2 h-2 bg-primary-400 dark:bg-primary-300 rounded-full -translate-x-[3px]" />
+                    <div className="bg-white dark:bg-gray-800/50 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow">
+                      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+                        <h3 className="text-lg font-semibold text-secondary-900 dark:text-white">
+                          {membership.organization}
+                        </h3>
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200">
+                          {membership.period}
+                        </span>
+                      </div>
+                      {membership.role && (
+                        <p className="text-secondary-600 dark:text-secondary-300 mt-2">
+                          {membership.role}
+                        </p>
+                      )}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </section>
+
+        <section id="proposals" className="py-16 bg-white dark:bg-gray-900">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="container mx-auto px-4"
+          >
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-white mb-8 tracking-tight">
+                Research Proposals & Funding
+              </h2>
+              <div className="space-y-6">
+                {proposalDevelopment.map((proposal, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="relative pl-8 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-primary-200 before:to-primary-100 dark:before:from-primary-700 dark:before:to-primary-900 before:rounded-full"
+                  >
+                    <div className="absolute left-0 top-0 w-2 h-2 bg-primary-400 dark:bg-primary-300 rounded-full -translate-x-[3px]" />
+                    <div className="bg-white dark:bg-gray-800/50 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow">
+                      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                        <div className="flex-1">
+                          <h3 className="text-xl font-semibold text-secondary-900 dark:text-white mb-2">
+                            {proposal.title}
+                          </h3>
+                          <p className="text-lg text-primary-600 dark:text-primary-400">
+                            {proposal.agency}
+                          </p>
+                        </div>
+                        <div className="flex flex-col items-end gap-2">
+                          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200">
+                            {proposal.period}
+                          </span>
+                          <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium
+                            ${proposal.status === 'funded' 
+                              ? 'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200'
+                              : proposal.status === 'completed'
+                              ? 'bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200'
+                              : 'bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200'
+                            }`}
+                          >
+                            {proposal.status.charAt(0).toUpperCase() + proposal.status.slice(1)}
+                          </span>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2 mb-4">
+                        <span className="text-lg font-semibold text-secondary-700 dark:text-secondary-300">
+                          {proposal.amount}
+                        </span>
+                        <span className="text-secondary-600 dark:text-secondary-400">•</span>
+                        <span className="text-secondary-600 dark:text-secondary-400">
+                          {proposal.role}
+                        </span>
+                      </div>
+                      <ul className="space-y-2">
+                        {proposal.description.map((item, idx) => (
+                          <motion.li
+                            key={idx}
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: idx * 0.1 }}
+                            className="text-secondary-600 dark:text-secondary-300 flex items-start"
+                          >
+                            <span className="mr-2 text-primary-400 dark:text-primary-300">•</span>
+                            {item}
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </section>
+
+        <section id="presentations" className="py-16 bg-white dark:bg-gray-900">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="container mx-auto px-4"
+          >
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-white mb-8 tracking-tight">
+                Presentations & Conferences
+              </h2>
+              <div className="space-y-6">
+                {presentations.map((presentation, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="relative pl-8 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-primary-200 before:to-primary-100 dark:before:from-primary-700 dark:before:to-primary-900 before:rounded-full"
+                  >
+                    <div className="absolute left-0 top-0 w-2 h-2 bg-primary-400 dark:bg-primary-300 rounded-full -translate-x-[3px]" />
+                    <div className="bg-white dark:bg-gray-800/50 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow">
+                      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                        <div className="flex-1">
+                          <h3 className="text-xl font-semibold text-secondary-900 dark:text-white mb-2">
+                            {presentation.title}
+                          </h3>
+                          <p className="text-lg text-primary-600 dark:text-primary-400">
+                            {presentation.event}
+                          </p>
+                          <p className="text-secondary-600 dark:text-secondary-400">
+                            {presentation.location}
+                          </p>
+                          <p className="text-secondary-600 dark:text-secondary-400">
+                            {presentation.date}
+                          </p>
+                          <p className="text-secondary-600 dark:text-secondary-400">
+                            {presentation.type}
+                          </p>
+                        </div>
+                        <div className="flex flex-col items-end gap-2">
+                          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200">
+                            {presentation.type}
+                          </span>
+                          <ul className="space-y-2">
+                            {presentation.description?.map((item, idx) => (
+                              <motion.li
+                                key={idx}
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: idx * 0.1 }}
+                                className="text-secondary-600 dark:text-secondary-300 flex items-start"
+                              >
+                                <span className="mr-2 text-primary-400 dark:text-primary-300">•</span>
+                                {item}
+                              </motion.li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </section>
+
+        <section id="media" className="py-16">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="container mx-auto px-4"
+          >
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-white mb-8 tracking-tight">
+                Media & Press Coverage
+              </h2>
+              <div className="grid grid-cols-1 gap-6">
+                {mediaCoverage.map((media, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="relative pl-8 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-primary-200 before:to-primary-100 dark:before:from-primary-700 dark:before:to-primary-900 before:rounded-full"
+                  >
+                    <div className="absolute left-0 top-0 w-2 h-2 bg-primary-400 dark:bg-primary-300 rounded-full -translate-x-[3px]" />
+                    <div className="bg-white dark:bg-gray-800/50 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow">
+                      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                        <div className="flex-1">
+                          <div className="flex items-center gap-2 mb-2">
+                            <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium
+                              ${media.type === 'tv' ? 'bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200' :
+                                media.type === 'news' ? 'bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200' :
+                                media.type === 'social' ? 'bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200' :
+                                'bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200'
+                              }`}
+                            >
+                              {media.type.toUpperCase()}
+                            </span>
+                          </div>
+                          <h3 className="text-xl font-semibold text-secondary-900 dark:text-white mb-2">
+                            {media.title}
+                          </h3>
+                          <p className="text-lg text-primary-600 dark:text-primary-400">
+                            {media.outlet}
+                          </p>
+                          {media.subscribers && (
+                            <p className="text-secondary-600 dark:text-secondary-400 mt-1">
+                              {media.subscribers}
+                            </p>
+                          )}
+                          {media.description && (
+                            <p className="text-secondary-600 dark:text-secondary-400 mt-2">
+                              {media.description}
+                            </p>
+                          )}
+                        </div>
+                        {media.link && (
+                          <motion.a
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            href={media.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center px-4 py-2 rounded-lg bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 hover:bg-primary-100 dark:hover:bg-primary-900/40 transition-colors"
+                          >
+                            <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                            View Article
+                          </motion.a>
+                        )}
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </section>
+
+        <section id="community" className="py-16 bg-white dark:bg-gray-900">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="container mx-auto px-4"
+          >
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-white mb-8 tracking-tight">
+                Community Service & Leadership
+              </h2>
+              <div className="space-y-6">
+                {communityService.map((service, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="relative pl-8 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-primary-200 before:to-primary-100 dark:before:from-primary-700 dark:before:to-primary-900 before:rounded-full"
+                  >
+                    <div className="absolute left-0 top-0 w-2 h-2 bg-primary-400 dark:bg-primary-300 rounded-full -translate-x-[3px]" />
+                    <div className="bg-white dark:bg-gray-800/50 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow">
+                      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                        <div>
+                          <h3 className="text-xl font-semibold text-secondary-900 dark:text-white">
+                            {service.role}
+                          </h3>
+                          <p className="text-lg text-primary-600 dark:text-primary-400 mt-1">
+                            {service.organization}
+                          </p>
+                        </div>
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200">
+                          {service.period}
+                        </span>
+                      </div>
+                      <ul className="space-y-2">
+                        {service.description.map((item, idx) => (
+                          <motion.li
+                            key={idx}
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: idx * 0.1 }}
+                            className="text-secondary-600 dark:text-secondary-300 flex items-start"
+                          >
+                            <span className="mr-2 text-primary-400 dark:text-primary-300">•</span>
+                            {item}
+                          </motion.li>
+                        ))}
+                      </ul>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </section>
+
       </main>
       <motion.button
         initial={{ opacity: 0, y: 20 }}
@@ -997,4 +1922,4 @@ export default function Home() {
   );
 }
 
-//test
+//testsadas
