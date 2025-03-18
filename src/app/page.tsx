@@ -310,6 +310,9 @@ const manuscriptsInReview: Publication[] = [
   }
 ];
 
+// Combine publications and manuscripts in review
+const allPublications = [...publications, ...manuscriptsInReview];
+
 const awards: Award[] = [
   {
     title: "Harold V. and Velma B. Walton Doctoral Student Endowment in Agricultural and Biological Engineering Award",
@@ -1392,7 +1395,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="space-y-6">
-                {publications.map((pub, index) => (
+                {allPublications.map((pub, index) => (
                   <motion.div
                     key={index}
                     initial={{ opacity: 0, y: 20 }}
