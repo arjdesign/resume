@@ -57,6 +57,7 @@ interface Reference {
   email: string;
   phone?: string;
   relationship: string;
+  address?: string;
 }
 
 // Add Professional Membership interface
@@ -115,6 +116,15 @@ interface CommunityService {
   description: string[];
 }
 
+// Add Entrepreneurship and Leadership interface
+interface EntrepreneurshipLeadership {
+  title: string;
+  organization: string;
+  period: string;
+  description: string[];
+  link?: string;
+}
+
 const education = [
   {
     degree: 'Ph.D., Agricultural and Biological Engineering',
@@ -155,38 +165,59 @@ const researchExperience: ResearchExperience[] = [
       {
         subtitle: 'Ph.D. Research',
         details: [
-          'Leading the Life Cycle Analysis (LCA) for ECO-CBET: Transforming the Nitrogen Bioeconomy project funded by NSF ($1.7M)',
-          'Spearheading LCA for interdisciplinary C-CHANGE project funded by USDA NIFA ($10M)',
+          'Leading the Life Cycle Analysis (LCA) for ECO-CBET: Transforming the Nitrogen Bioeconomy project funded by NSF ($1.7 million)',
+          'Spearheading LCA for interdisciplinary C-CHANGE project funded by USDA NIFA ($10 million)',
           'Managing extensive datasets integrating inputs from multiple Life Cycle Inventory databases',
-          'Employing openLCA software for complex environmental impact assessments',
-          'Coordinating with stakeholders to align LCA objectives with sustainability goals',
-          'Contributing to scientific literature and academic conferences'
+          'Employing open-source LCA software, openLCA, to perform complex environmental impact assessments',
+          'Working closely with interdisciplinary team of experts in agronomy, ecology, engineering, and economics',
+          'Coordinating with project stakeholders to ensure alignment of LCA objectives with broader sustainability goals',
+          'Compiling comprehensive reports and presentations detailing LCA studies outcomes',
+          'Contributing to scientific literature and academic conferences',
+          'Engaged in outreach activities to disseminate research findings'
         ]
       },
       {
         subtitle: 'Master\'s Research',
         details: [
-          'Evaluated soil biological, physical, and economic aspects of management intensive grazing of cover crops',
-          'Analyzed soil microbial health and structural stability in Pennsylvania',
-          'Conducted partial budget analysis for farm profitability comparison',
-          'Collaborated with NRCS, ARS, Capital RC &D for pasture walks promotion',
-          'Participated in extension programs sharing research findings with 30+ farmers'
+          'Evaluated soil biological, physical, and economic facets to the integration of management intensive grazing of the cover crop (MIGCC) as the best management practice in Pennsylvania under a no-till system',
+          'Analyzed soil microbial health (soil carbon dioxide burst, Permanganate Oxidizable carbon, total Carbon) in response to the integration of MIG',
+          'Analyzed effect on soil compaction, soil structural stability, nutrient & water cycling',
+          'Conducted partial budget analysis, and net present value analysis to compare farm profitability',
+          'Collaborated with NRCS, ARS, Capital RC &D to deliver pasture walks',
+          'Participated in extension program (Pasture Walk) conducted to share findings among 30+ farmers'
         ]
       }
     ]
   },
   {
     title: 'NSF Innovation in Graduate Education Internship',
-    organization: 'Penn State & Tribhuvan University',
+    organization: 'Penn State University',
     period: '2023-2024',
     roles: [
       {
         details: [
-          'Facilitated collaboration between Penn State and Tribhuvan University for STEM graduate education',
-          'Led NSF-funded internship focusing on sustainable energy and waste management in Nepal',
-          'Managed anaerobic digester plant processing 30 tons/day of organic waste',
-          'Conducted Social Life Cycle Assessment (S-LCA) of biogas systems',
-          'Led Nepal\'s first carbon farming pilot at Dhangadi commercial biogas facility'
+          'Facilitated collaboration between Penn State and Tribhuvan University, enhancing STEM graduate education through NSF-funded project',
+          'Led a pioneering NSF-funded IGE internship focused on Innovations in Sustainable Energy and Waste Management in Nepal',
+          'Managed planning and collaboration aspects of anaerobic digester plant (30 tons/day organic waste)',
+          'Transformed waste into resources for nutrient recovery',
+          'Conducting Social Life Cycle Assessment (S-LCA) of biogas systems in Nepal',
+          'Leading Nepal\'s first carbon farming pilot at Dhangadi commercial biogas facility',
+          'Evaluating GHG emission reductions and carbon credit potential',
+          'Building networks between stakeholders for carbon market development'
+        ]
+      }
+    ]
+  },
+  {
+    title: 'Undergraduate Research',
+    organization: 'Tribhuvan University, Nepal',
+    period: '2014-2018',
+    roles: [
+      {
+        details: [
+          'Led the screening of rice varieties under reproductive stage drought stress',
+          'Conducted comprehensive field trials and data analysis on rice genotypes for drought tolerance',
+          'Presented findings to academic and local stakeholders'
         ]
       }
     ]
@@ -195,77 +226,87 @@ const researchExperience: ResearchExperience[] = [
 
 const publications: Publication[] = [
   {
-    title: 'Soil and Ocean Carbon Sequestration, Carbon Capture, Utilization, and Storage as Negative Emission Strategies for Global Climate Change',
-    authors: 'Pant, D., Shah, K. K., Sharma, S., Bhatta, M., Tripathi, S., Pandey, H. P., Tiwari, H., Shrestha, J., & Bhat, A. K.',
-    journal: 'Journal of Soil Science and Plant Nutrition, 23(2), 1421–1437',
-    year: '2023',
-    doi: '10.1007/s42729-023-01215-5'
+    title: "Soil and Ocean Carbon Sequestration, Carbon Capture, Utilization, and Storage as Negative Emission Strategies for Global Climate Change",
+    authors: "Pant, D., Shah, K. K., Sharma, S., Bhatta, M., Tripathi, S., Pandey, H. P., Tiwari, H., Shrestha, J., & Bhat, A. K.",
+    journal: "Journal of Soil Science and Plant Nutrition",
+    year: "2023",
+    doi: "10.1007/s42729-023-01215-5"
   },
   {
-    title: 'Correlation coefficient and path analysis of rice (Oryza sativa) genotypes under reproductive drought stress in mid hill of Nepal',
-    authors: 'Pant, D., Sharma, S., & Poudel, A.',
-    journal: 'Crop Research, 54, 152–157',
-    year: '2022',
-    doi: '10.31830/2454-1761.2019.026'
+    title: "Correlation coefficient and path analysis of rice (Oryza sativa) genotypes under reproductive drought stress in mid hill of Nepal",
+    authors: "Pant, D., Sharma, S., & Poudel, A.",
+    journal: "Crop Research, 54, 152–157",
+    year: "2022",
+    doi: "10.31830/2454-1761.2019.026"
   },
   {
-    title: 'Strawberry Grey Mould, a Devastating Disease Caused by the Airborne Fungal Pathogen Botrytis cinerea',
-    authors: 'Rhouma, A., Lobna, H.-H., Othmen, B., Shah, K., Matrood, A., Okon, O., & Pant, D.',
-    journal: 'Egyptian Journal of Phytopathology, 50, 44–50',
-    year: '2022',
-    doi: '10.21608/ejp.2022.161763.1070'
+    title: "Intensive Grazing Management of Cover Crops for Soil Health",
+    authors: "Pant, D., & Duiker, S.",
+    journal: "",
+    year: "2021"
   },
   {
-    title: 'Downy mildew of cucurbits caused by Pseudoperonospora cubensis: Disease profile and management',
-    authors: 'Rhouma, A., Shah, K., Pant, D., & Khrieba, M.',
-    journal: '2, 8–15',
-    year: '2022'
+    title: "Strawberry Grey Mould, a Devastating Disease Caused by the Airborne Fungal Pathogen Botrytis cinerea",
+    authors: "Rhouma, A., Lobna, H.-H., Othmen, B., Shah, K., Matrood, A., Okon, O., & Pant, D.",
+    journal: "Egyptian Journal of Phytopathology, 50, 44–50",
+    year: "2022",
+    doi: "10.21608/ejp.2022.161763.1070"
   },
   {
-    title: 'Access to Solar Energy for Livelihood Security in Odisha, India',
-    authors: 'Giri, N. C., Das, S., Pant, D., Bhadoria, V. S., Mishra, D. P., Mahalik, G., & Mrabet, R.',
-    journal: 'Signals, Machines and Automation: Select Proceedings of SIGMA 2022, 1023, 235',
-    year: '2023'
+    title: "Downy mildew of cucurbits caused by Pseudoperonospora cubensis: Disease profile and management",
+    authors: "Rhouma, A., Shah, K., Pant, D., & Khrieba, M.",
+    journal: "2, 8–15",
+    year: "2022"
   },
   {
-    title: 'Secure Blockchain-Based Intelligent Internet of Things',
-    authors: 'Das, S., Giri, N. C., Mazumdar, K., Bhowmick, P., Tiwari, H., Pant, D., & Mehta, S.',
-    journal: 'Security Implementation in Internet of Medical Things (pp. 23-36). CRC Press',
-    year: '2023'
+    title: "Access to Solar Energy for Livelihood Security in Odisha, India",
+    authors: "Giri, N. C., Das, S., Pant, D., Bhadoria, V. S., Mishra, D. P., Mahalik, G., & Mrabet, R.",
+    journal: "Signals, Machines and Automation: Select Proceedings of SIGMA 2022, 1023, 235",
+    year: "2023"
   },
   {
-    title: 'Access to Solar Energy for Livelihood Security in Odisha, India',
-    authors: 'Giri, N. C., Das, S., Pant, D., Bhadoria, V. S., Mishra, D. P., Mahalik, G., & Mrabet, R.',
-    journal: 'International Conference on Signals, Machines, and Automation (pp. 235-242). Singapore: Springer Nature Singapore',
-    year: '2022'
+    title: "Secure Blockchain-Based Intelligent Internet of Things",
+    authors: "Das, S., Giri, N. C., Mazumdar, K., Bhowmick, P., Tiwari, H., Pant, D., & Mehta, S.",
+    journal: "Security Implementation in Internet of Medical Things (pp. 23-36). CRC Press",
+    year: "2023"
   },
   {
-    title: 'Alternate Bearing in Fruit Crops: Causes and Control Measures',
-    authors: 'Jangid, R., Kumar, A., Masu, M., Kanade, N., & Pant, D.',
-    journal: 'Asian Journal of Agricultural and Horticultural Research, 10–19',
-    year: '2023',
-    doi: '10.9734/ajahr/2023/v10i1217'
+    title: "Access to Solar Energy for Livelihood Security in Odisha, India",
+    authors: "Giri, N. C., Das, S., Pant, D., Bhadoria, V. S., Mishra, D. P., Mahalik, G., & Mrabet, R.",
+    journal: "International Conference on Signals, Machines, and Automation (pp. 235-242). Singapore: Springer Nature Singapore",
+    year: "2022"
   },
   {
-    title: 'An overview on possible management strategies for coffee white stem Borer Xylotrechus quadripes Chevrolat (Coleoptera: Cerambycidae) in Nepal',
-    authors: 'Pandey, M., Kayastha, P., Khanal, S., Shrestha, S., Thakur, G., Adhikari, K., Shah, K., Pant, D., & Khanal, D.',
-    journal: 'Heliyon, 8',
-    year: '2022',
-    doi: '10.1016/j.heliyon.2022.e10445'
+    title: "Alternate Bearing in Fruit Crops: Causes and Control Measures",
+    authors: "Jangid, R., Kumar, A., Masu, M., Kanade, N., & Pant, D.",
+    journal: "Asian Journal of Agricultural and Horticultural Research, 10–19",
+    year: "2023",
+    doi: "10.9734/ajahr/2023/v10i1217"
   },
   {
-    title: 'Forage production from intensive grazing of cover crops and impact on soil health',
-    authors: 'Pant, Divya., Duiker, Sjoerd W., Bryant Ray B & White, Charles M.',
-    journal: 'Agriculture, Ecosystems & Environment',
-    year: '2022',
-    status: 'in-review'
+    title: "An overview on possible management strategies for coffee white stem Borer Xylotrechus quadripes Chevrolat (Coleoptera: Cerambycidae) in Nepal",
+    authors: "Pandey, M., Kayastha, P., Khanal, S., Shrestha, S., Thakur, G., Adhikari, K., Shah, K., Pant, D., & Khanal, D.",
+    journal: "Heliyon, 8",
+    year: "2022",
+    doi: "10.1016/j.heliyon.2022.e10445"
+  }
+];
+
+// Add manuscripts in review
+const manuscriptsInReview: Publication[] = [
+  {
+    title: "Forage production from intensive grazing of cover crops and impact on soil health",
+    authors: "Pant, Divya., Duiker, Sjoerd W., Bryant Ray B & White, Charles M.",
+    journal: "Agriculture, Ecosystems & Environment",
+    year: "2022",
+    status: "in-review"
   },
   {
-    title: 'Disease resistance triggered by plant immunity system: concept and mechanism',
-    authors: 'Bhatta, M., Pant, Divya., Shah, K.K., Giri, N.C., Rhouma, A., & Shrestha, J.',
-    journal: 'Phytopathology Research. BMC',
-    year: '2022',
-    status: 'in-review'
+    title: "Disease resistance triggered by plant immunity system: concept and mechanism",
+    authors: "Bhatta, M., Pant, Divya., Shah, K.K., Giri, N.C., Rhouma, A., & Shrestha, J.",
+    journal: "Phytopathology Research. BMC",
+    year: "2022",
+    status: "in-review"
   }
 ];
 
@@ -362,40 +403,41 @@ const awards: Award[] = [
 // Add skills data
 const skills: SkillCategory[] = [
   {
-    name: 'Research & Analysis',
+    name: 'Programming',
     skills: [
-      { name: 'Life Cycle Analysis (LCA)', level: 'expert' },
-      { name: 'Environmental Impact Assessment', level: 'expert' },
-      { name: 'Data Analysis & Statistics', level: 'advanced' },
-      { name: 'Research Design', level: 'advanced' },
-      { name: 'Scientific Writing', level: 'advanced' }
+      { name: 'C++' },
+      { name: 'R programming' },
+      { name: 'Python' }
     ]
   },
   {
-    name: 'Technical Skills',
+    name: 'Operating System',
     skills: [
-      { name: 'R Programming', level: 'advanced' },
-      { name: 'Python', level: 'intermediate' },
-      { name: 'MATLAB', level: 'intermediate' },
-      { name: 'GIS', level: 'intermediate' },
-      { name: 'openLCA', level: 'expert' }
+      { name: 'Microsoft Windows- PowerPoint, Excel, Word, Spreadsheet' },
+      { name: 'ArcGIS' },
+      { name: 'Web Soil Survey' }
     ]
   },
   {
     name: 'Languages',
     skills: [
-      { name: 'English', level: 'expert' },
-      { name: 'Nepali', level: 'expert' },
-      { name: 'Hindi', level: 'advanced' }
+      { name: 'English' },
+      { name: 'Nepali' },
+      { name: 'Hindi' },
+      { name: 'Pahadi' }
     ]
   },
   {
-    name: 'Soft Skills',
+    name: 'Instrumentation',
     skills: [
-      { name: 'Project Management', level: 'advanced' },
-      { name: 'Team Leadership', level: 'advanced' },
-      { name: 'Public Speaking', level: 'advanced' },
-      { name: 'Grant Writing', level: 'intermediate' }
+      { name: 'TL 2800 Ammonia Analyzer' },
+      { name: 'Colorimeter' },
+      { name: 'PR2 Soil Moisture Profile Probe' },
+      { name: 'ML3 Theta Probe Soil Moisture Sensor' },
+      { name: 'Moisture Probe Installation' },
+      { name: 'Soil Infiltrometer' },
+      { name: 'Laminar Flow Hoods' },
+      { name: 'SPAD 502 Plus Chlorophyll Meter' }
     ]
   }
 ];
@@ -403,25 +445,49 @@ const skills: SkillCategory[] = [
 // Add references data
 const references: Reference[] = [
   {
-    name: "Dr. Charles M. White",
-    title: "Associate Professor",
-    institution: "Penn State University",
-    email: "cmw29@psu.edu",
-    relationship: "Ph.D. Advisor"
+    name: "Christine Costello",
+    title: "Assistant Professor of Agricultural and Biological Engineering",
+    institution: "Pennsylvania State University",
+    email: "cxc693@psu.edu",
+    phone: "814-865-3089",
+    relationship: "Research Advisor",
+    address: "217 Agricultural Engineering Building, University Park, PA 16802"
   },
   {
-    name: "Dr. Sjoerd W. Duiker",
+    name: "Rachel Brennan",
+    title: "Professor of Civil and Environmental Engineering",
+    institution: "Pennsylvania State University",
+    email: "rab44@psu.edu",
+    phone: "814-865-9428",
+    relationship: "Research Advisor",
+    address: "231K Sackett Building, University Park, PA 16802"
+  },
+  {
+    name: "Sjoerd Willem Duiker",
     title: "Professor of Soil Management and Applied Soil Physics",
-    institution: "Penn State University",
-    email: "swd10@psu.edu",
-    relationship: "Master's Thesis Advisor"
+    institution: "Pennsylvania State University",
+    email: "sduiker@psu.edu",
+    phone: "814-863-7637",
+    relationship: "Research Advisor",
+    address: "408 Agricultural Sciences and Industries Building, University Park, PA 16802"
   },
   {
-    name: "Dr. Tom L. Richard",
-    title: "Professor of Agricultural and Biological Engineering",
-    institution: "Penn State University",
-    email: "tlr20@psu.edu",
-    relationship: "Graduate Committee Member"
+    name: "Mark A. Brennan",
+    title: "Professor and UNESCO Chair in Community, Leadership, and Youth Development Director of Graduate Studies for Education, Development, and Community Engagement",
+    institution: "Pennsylvania State University",
+    email: "unescochair@psu.edu",
+    phone: "814-863-0387",
+    relationship: "Academic Advisor",
+    address: "204C Ferguson Building, University Park, PA 16802"
+  },
+  {
+    name: "Ray Bryant",
+    title: "Adjunct Professor of Agronomy, USDA-ARS",
+    institution: "USDA-ARS",
+    email: "ray.bryant@ars.usda.gov",
+    phone: "814-863-092",
+    relationship: "Research Advisor",
+    address: "USDA-ARS_Pasture Systems and Watershed Management Research Unit, University Park, PA 16802"
   }
 ];
 
@@ -473,104 +539,59 @@ const professionalMemberships: ProfessionalMembership[] = [
 const teachingExperience: TeachingExperience[] = [
   {
     position: "Graduate Teaching Assistant",
-    course: "BE 308: Engineering Elements of Biochemistry and Microbiology",
-    institution: "Penn State University",
-    period: "Spring 2024",
-    responsibilities: [
-      "Lead laboratory sessions for undergraduate bioengineering students",
-      "Guide students through experimental procedures and data analysis",
-      "Grade assignments and provide constructive feedback",
-      "Hold office hours for student consultations"
-    ],
-    impact: "Supporting 60+ undergraduate students in developing essential laboratory skills"
-  },
-  {
-    position: "Graduate Teaching Assistant",
-    course: "ASM 327: Soil and Water Resource Management",
-    institution: "Penn State University",
-    period: "Fall 2023",
-    responsibilities: [
-      "Assisted in course development and material preparation",
-      "Conducted field demonstrations of soil and water management techniques",
-      "Facilitated student group projects and discussions",
-      "Evaluated student presentations and reports"
-    ],
-    impact: "Enhanced learning experience for 45 students through practical demonstrations"
-  },
-  {
-    position: "Graduate Teaching Assistant",
     course: "AGECO 144: Organic Agriculture",
-    institution: "Penn State University",
+    institution: "Pennsylvania State University",
     period: "Aug 2021-Dec 2021",
     responsibilities: [
-      "Assisted with undergraduate class instruction",
-      "Prepared course materials and resources",
-      "Evaluated student assignments and provided feedback",
-      "Supported students in understanding organic agriculture concepts"
+      "Department of Agricultural and Environmental Plant Science",
+      "Undergraduate Class instruction"
     ]
   },
   {
-    position: "Teaching Assistant",
-    course: "Sustainable Agriculture System",
+    position: "Undergraduate Teaching Assistant",
+    course: "Sustainable agriculture system",
     institution: "Institute of Agriculture and Animal Science, Tribhuvan University",
     period: "Jan 2016-Dec 2017",
     responsibilities: [
-      "Assisted with undergraduate class (3 credits)",
-      "Conducted laboratory sessions",
-      "Supervised student research projects",
-      "Prepared laboratory materials and equipment"
+      "3 credits undergraduate class"
     ]
   }
 ];
 
-// Add proposal development data after skills data
+// Add proposal development data
 const proposalDevelopment: ProposalDevelopment[] = [
   {
-    title: "ECO-CBET: Transforming the Nitrogen Bioeconomy",
-    agency: "National Science Foundation (NSF)",
-    period: "2023-2025",
-    amount: "$1.7M",
-    role: "Lead Life Cycle Analyst",
-    status: "funded",
-    description: [
-      "Leading comprehensive Life Cycle Analysis (LCA) for sustainable nitrogen management",
-      "Evaluating environmental impacts of novel nitrogen recovery technologies",
-      "Collaborating with interdisciplinary team of researchers and industry partners",
-      "Developing sustainable solutions for nitrogen pollution reduction"
-    ]
-  },
-  {
-    title: "C-CHANGE: Creating Circular Bio-Carbon and Agriculture Network for Greenhouse Gas Emission",
-    agency: "USDA NIFA",
-    period: "2022-2024",
-    amount: "$10M",
-    role: "Graduate Research Assistant",
-    status: "funded",
-    description: [
-      "Conducting Life Cycle Assessment for carbon farming initiatives",
-      "Analyzing greenhouse gas emission reduction potential",
-      "Evaluating economic viability of bio-carbon technologies",
-      "Contributing to policy recommendations for sustainable agriculture"
-    ]
-  },
-  {
-    title: "Sustainable Energy and Waste Management in Nepal",
-    agency: "NSF Innovation in Graduate Education",
-    period: "2023-2024",
-    amount: "$25,000",
-    role: "Principal Investigator",
+    title: "Elon Musk funded XPRIZE CARBON REMOVAL- Sanjeevani: Land-based approach for carbon sequestration at global scale",
+    agency: "XPRIZE",
+    period: "2021",
+    amount: "$1 million to $100 million",
+    role: "PI",
     status: "completed",
     description: [
-      "Led international collaboration between Penn State and Tribhuvan University",
-      "Managed anaerobic digester plant processing 30 tons/day of organic waste",
-      "Conducted Social Life Cycle Assessment of biogas systems",
-      "Established Nepal's first carbon farming pilot project"
+      "Only team from Nepal to participate in X prize",
+      "Not funded",
+      "PI: Pant, Divya",
+      "Co-PIs Ojha, R.B; Jaisi, M; Dhakal, B; Katwal, A"
+    ]
+  },
+  {
+    title: "Integration of management intensive grazing of the cover crop as the best management practice in Pennsylvania under a no-till system",
+    agency: "Northeast SARE Graduate Student Grant",
+    period: "2020",
+    amount: "$15,000",
+    role: "Co-PI",
+    status: "completed",
+    description: [
+      "PI: Duiker, S",
+      "Co-PIs: Pant, D",
+      "Not funded"
     ]
   }
 ];
 
-// Add presentations data after proposal development data
+// Add presentations data
 const presentations: Presentation[] = [
+  // Recent and Upcoming 2024 Presentations
   {
     title: "Life cycle assessment of duckweed based manure treatment system for nutrient circularity",
     event: "Biorenewable Symposium",
@@ -585,6 +606,28 @@ const presentations: Presentation[] = [
     date: "April 5-6, 2024",
     type: "conference"
   },
+  {
+    title: "Life cycle assessment of duckweed based manure treatment system for nutrient circularity",
+    event: "International Symposium on Sustainable Systems and Technology",
+    location: "Baltimore",
+    date: "June 18-20, 2024",
+    type: "conference"
+  },
+  {
+    title: "Life cycle assessment of duckweed based manure treatment system for nutrient circularity",
+    event: "American Society of Agricultural and Biological Engineers",
+    location: "California",
+    date: "July 28-31, 2024",
+    type: "conference"
+  },
+  {
+    title: "Life cycle assessment of duckweed based manure treatment system for nutrient circularity",
+    event: "NORTHEAST AGRICULTURAL / BIOLOGICAL ENGINEERING CONFERENCE",
+    location: "Pennsylvania",
+    date: "July 14-17, 2024",
+    type: "conference"
+  },
+  // Past Presentations 2023
   {
     title: "Life cycle assessment of pelletized duckweed soil amendment derived from farm manure wastewater",
     event: "International Symposium on Sustainable Systems and Technology",
@@ -611,8 +654,9 @@ const presentations: Presentation[] = [
     event: "Department of Agricultural Engineering, Penn State University",
     location: "State College, PA",
     date: "December 7, 2023",
-    type: "invited"
+    type: "conference"
   },
+  // Past Presentations 2022
   {
     title: "Holistic approach to livestock and waste management for sustainability",
     event: "International Conference 'Sudurpaschim Studies: Heritage, Innovation, and Transformation'",
@@ -623,37 +667,50 @@ const presentations: Presentation[] = [
   {
     title: "Forage production from intensive grazing of cover crops and impact on soil health",
     event: "Penn State University Departmental Seminar",
-    location: "Penn State University",
+    location: "Penn State",
     date: "May 2022",
-    type: "invited"
+    type: "conference"
   },
+  // Past Presentations 2021
   {
     title: "Impact of prescribed grazing of cover crops on soil health and forage production",
     event: "Keystone Crop and Soil Conference",
-    location: "Pennsylvania",
+    location: "",
     date: "October 19-20, 2021",
     type: "conference"
+  },
+  {
+    title: "Soil health and profitability impacts of prescribed grazing of cover crops vs double-cropped soybeans",
+    event: "Penn State Graduate Exhibition",
+    location: "virtual",
+    date: "March 23, 2021",
+    type: "conference"
+  },
+  {
+    title: "Impact of prescribed grazing of cover crops on soil health and forage production",
+    event: "Northeast Cover Crops Council annual conference",
+    location: "",
+    date: "March 2021",
+    type: "conference"
+  },
+  {
+    title: "Management Intensive Grazing of Cover Crops for Soil Health and Profitability",
+    event: "Making Cover Crops Pay, Penn State Extension",
+    location: "virtual",
+    date: "February 2021",
+    type: "extension"
   },
   {
     title: "Management Intensive Grazing of Cover Crops for Soil Health and Profitability",
     event: "ASA-CSSA-SSSA Annual Meeting",
     location: "Virtual",
-    date: "November 9-13, 2020",
+    date: "Nov. 9-13, 2020",
     type: "conference"
   }
 ];
 
 // Add navigation data
 const navigationItems: NavItem[] = [
-  {
-    id: 'overview',
-    label: 'Overview',
-    icon: (
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-      </svg>
-    )
-  },
   {
     id: 'education',
     label: 'Education',
@@ -665,11 +722,11 @@ const navigationItems: NavItem[] = [
     )
   },
   {
-    id: 'experience',
-    label: 'Experience',
+    id: 'research',
+    label: 'Research Experience',
     icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
       </svg>
     )
   },
@@ -683,8 +740,17 @@ const navigationItems: NavItem[] = [
     )
   },
   {
+    id: 'presentations',
+    label: 'Presentations',
+    icon: (
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+      </svg>
+    )
+  },
+  {
     id: 'awards',
-    label: 'Awards',
+    label: 'Honors & Awards',
     icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
@@ -692,17 +758,17 @@ const navigationItems: NavItem[] = [
     )
   },
   {
-    id: 'skills',
-    label: 'Skills',
+    id: 'entrepreneurship',
+    label: 'Entrepreneurship & Leadership',
     icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
       </svg>
     )
   },
   {
-    id: 'references',
-    label: 'References',
+    id: 'memberships',
+    label: 'Professional Memberships',
     icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -711,37 +777,19 @@ const navigationItems: NavItem[] = [
   },
   {
     id: 'teaching',
-    label: 'Teaching',
+    label: 'Teaching Experience',
     icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-      </svg>
-    )
-  },
-  {
-    id: 'memberships',
-    label: 'Memberships',
-    icon: (
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
       </svg>
     )
   },
   {
     id: 'proposals',
-    label: 'Proposals',
+    label: 'Proposal Development',
     icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-      </svg>
-    )
-  },
-  {
-    id: 'presentations',
-    label: 'Presentations',
-    icon: (
-      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H14" />
       </svg>
     )
   },
@@ -759,10 +807,29 @@ const navigationItems: NavItem[] = [
     label: 'Community Service',
     icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+      </svg>
+    )
+  },
+  {
+    id: 'skills',
+    label: 'Skills',
+    icon: (
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+      </svg>
+    )
+  },
+  {
+    id: 'references',
+    label: 'References',
+    icon: (
+      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
       </svg>
     )
   }
+ 
 ];
 
 // Add media coverage data
@@ -772,78 +839,143 @@ const mediaCoverage: MediaCoverage[] = [
     title: 'Academic and Entrepreneurial Excellence Interview',
     outlet: 'News24 Nepal',
     subscribers: '3.17 million',
-    link: 'Link 🔗'
+    link: 'https://www.youtube.com/watch?v=j_Ew1ZafxhU&t=5s'
   },
   {
     type: 'tv',
     title: 'Academic and Entrepreneurial Excellence Interview',
     outlet: 'Space 4K Television',
     subscribers: '340k',
-    link: 'Link 🔗'
+    link: 'https://www.youtube.com/watch?v=aHaDq0gFTXU&t=493s'
   },
   {
     type: 'tv',
     title: 'Academic and Entrepreneurial Excellence Interview',
     outlet: 'Prime Times HD',
     subscribers: '1.47 million',
-    link: 'Link 🔗'
+    link: 'https://www.youtube.com/watch?v=jfUdfHI6Jd4&t=867s'
   },
   {
     type: 'tv',
     title: 'Academic and Entrepreneurial Excellence Interview',
     outlet: 'Yoho Television HD',
     subscribers: '1.01 million',
-    link: 'Link 🔗'
+    link: 'https://www.youtube.com/watch?v=55ksIB-HO88'
   },
   {
     type: 'tv',
     title: 'Academic and Entrepreneurial Excellence Interview',
     outlet: 'Ramailo Cha',
     subscribers: '1.45 million',
-    link: 'Link 🔗'
+    link: 'https://www.youtube.com/watch?v=8hex9LDIA3E'
   },
   {
     type: 'social',
     title: 'State of State speaker interview',
     outlet: 'Blue & White Society Facebook',
-    link: 'State of State speaker, Divya Pant | Join us now, live to hear from State of State speaker, Divya Pant, about her experience as an international student! | By Blue & White SocietyFacebook | Facebook'
+    link: 'https://www.facebook.com/BlueWhiteSociety/videos/719251525547692/?t=44'
   }
 ];
 
 // Add community service data
 const communityService: CommunityService[] = [
   {
-    role: "Goodwill Tourism Ambassador",
-    organization: "Nepal Tourism Board under Miss Nepal North America",
+    role: "Moderator",
+    organization: "Club of Rome Global Youth Summit, Penn State University",
+    period: "",
+    description: []
+  },
+  {
+    role: "Organizer",
+    organization: "Women Empowerment-Menstrual hygiene and sexual awareness among secondary female students",
+    period: "2018",
+    description: ["YFAW"]
+  },
+  {
+    role: "Event Coordinator",
+    organization: "Agri debate on vulnerable issues concerning agriculture and environment",
+    period: "2017",
+    description: ["YFAW"]
+  },
+  {
+    role: "Organizer",
+    organization: "Workshop on 'Communication Skill Development & Proposal Writing'",
+    period: "2016",
+    description: ["YFAW"]
+  },
+  {
+    role: "Event organizer",
+    organization: "CoP in my city campaign",
+    period: "2015",
+    description: ["YFAW"]
+  },
+  {
+    role: "Mentor",
+    organization: "Network for Women Empowerment, Child-Care, Rural Agri-Research and Extension",
+    period: "",
+    description: []
+  },
+  {
+    role: "Advisor",
+    organization: "Youth-led NGO- Youth for Agri Welfare",
+    period: "",
+    description: []
+  },
+  {
+    role: "Trainee",
+    organization: "30 days training and educational excursion to learn farming practices and innovations in 10+ states of India",
+    period: "2016",
+    description: []
+  }
+];
+
+// Add Entrepreneurship and Leadership data
+const entrepreneurshipLeadership: EntrepreneurshipLeadership[] = [
+  {
+    title: "Goodwill Tourism Ambassador",
+    organization: "Nepal Tourism Board, Miss Nepal North America",
     period: "2022-Present",
     description: [
       "Placed Second Runner up for Miss Nepal North America",
-      "Featured by the largest social media account in Nepal",
+      "Featured by the largest social media account in Nepal for winning Miss Nepal North America",
       "Bagged Miss Talent Trophy for Miss Nepal North America, 2022",
-      "Showcased Nepali language, ethnicities, folk dance, traditions, culture, and food among US government representatives",
-      "Strengthened Nepal-US relations through cultural promotion in America"
-    ]
+      "Showcased Nepali language, ethnicities, folk dance, traditions, culture, and food among US government representatives, and local and regional communities in Northeast America to strengthen Nepal-US relations"
+    ],
+    link: "https://missnepalnorthamerica.com/"
   },
   {
-    role: "Joint Secretary",
+    title: "CEO and Founder",
+    organization: "Carbon Away (formerly named Carbon Compost)",
+    period: "2020-Present",
+    description: [
+      "Carbon Away and Waste to Energy are a sustainable business model that creates economic, social, and environmental value out of organic waste",
+      "Waste to Energy has built an anaerobic digester in Dhangadi Sub Metropolitan City, Nepal with the capacity to process 30 tons of organic municipal waste/day and produce 1200 kg of biogas/day and 3.5 tons of fertilizer/day from waste",
+      "The project is supported by the Alternative Energy Promotion Centre (AEPC) and has a total investment of $250,000",
+      "Forged collaboration with Dev Training and Management Service Center Pvt. Ltd. and collectively worked on the Waste to Energy Project in Dhangadi Sub Metropolitan City and provided related training to 120 farmers in Nepal",
+      "Built collaboration among 4 academic and research institutions, 3 nonprofit youth and community development-driven organizations, and 5 agriculture startups in Nepal"
+    ],
+    link: "https://www.instagram.com/carbonaway_/"
+  },
+  {
+    title: "Joint Secretary",
     organization: "Youth for Agri Welfare (YFAW)",
     period: "2015-2019",
     description: [
-      "Scaled YFAW's team members, community members served, and collaborators three times during tenure as founding member",
-      "Developed agriculture training packages for 52 resource-poor farmers in Parbat, Lamjung, and Tahahu districts, Nepal",
-      "Coordinated training on 'Integrated Farming and Sustainable Farm Design' for farmers",
-      "Promoted successful agro-enterprises: Metro Kheti, Dudaile Farm, Friday discussion forum"
-    ]
+      "Scaled the number of YFAW's team members, community members served, and collaborators three times during my tenure as a founding member of YFAW",
+      "Developed and ensured appropriate agriculture training packages for 52 resource-poor farmers in the Parbat, Lamjung, and Tahahu districts, Nepal",
+      "Coordinated and facilitated training, seminar, and workshop on Integrated Farming and Sustainable Farm Design for 52 farmers",
+      "Identified and promoted potential agro-enterprises in Nepal which now has scaled up from pilot scale projects to full-fledged enterprises"
+    ],
+    link: "https://www.facebook.com/yfaw015/"
   },
   {
-    role: "CEO and Founder",
-    organization: "Carbon Away & Global Business Partner of Waste to Energy Project",
+    title: "Advocate",
+    organization: "Women's Empowerment and Diversity",
     period: "2022-Present",
     description: [
-      "Developed a waste-to-energy project in Nepal",
-      "Managed partnerships with local and international stakeholders",
-      "Developed business strategies for sustainable waste management",
-      "Implemented community engagement programs"
+      "Advocated for women's empowerment, equity & equality",
+      "Advocated for inclusion, equity, and diversity at Penn State University",
+      "Advocating for Nepal US relations through Global Connections- Building Community Across Cultures"
     ]
   }
 ];
@@ -1177,7 +1309,7 @@ export default function Home() {
           </motion.div>
         </section>
 
-        <section id="experience" className="py-16 bg-white dark:bg-gray-900">
+        <section id="research" className="py-16 bg-white dark:bg-gray-900">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -1889,6 +2021,81 @@ export default function Home() {
                           </motion.li>
                         ))}
                       </ul>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </section>
+
+        <section id="entrepreneurship" className="py-16 bg-white dark:bg-gray-900">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="container mx-auto px-4"
+          >
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl md:text-4xl font-bold text-secondary-900 dark:text-white mb-8 tracking-tight">
+                Entrepreneurship & Leadership
+              </h2>
+              <div className="space-y-6">
+                {entrepreneurshipLeadership.map((activity, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="relative pl-8 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-1 before:bg-gradient-to-b before:from-primary-200 before:to-primary-100 dark:before:from-primary-700 dark:before:to-primary-900 before:rounded-full"
+                  >
+                    <div className="absolute left-0 top-0 w-2 h-2 bg-primary-400 dark:bg-primary-300 rounded-full -translate-x-[3px]" />
+                    <div className="bg-white dark:bg-gray-800/50 rounded-lg p-5 shadow-sm hover:shadow-md transition-shadow">
+                      <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
+                        <div className="flex-1">
+                          <h3 className="text-xl font-semibold text-secondary-900 dark:text-white mb-2">
+                            {activity.title}
+                          </h3>
+                          <p className="text-lg text-primary-600 dark:text-primary-400">
+                            {activity.organization}
+                          </p>
+                        </div>
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary-100 dark:bg-primary-900 text-primary-800 dark:text-primary-200">
+                          {activity.period}
+                        </span>
+                      </div>
+                      <ul className="space-y-2">
+                        {activity.description.map((item, idx) => (
+                          <motion.li
+                            key={idx}
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: idx * 0.1 }}
+                            className="text-secondary-600 dark:text-secondary-300 flex items-start"
+                          >
+                            <span className="mr-2 text-primary-400 dark:text-primary-300">•</span>
+                            {item}
+                          </motion.li>
+                        ))}
+                      </ul>
+                      {activity.link && (
+                        <motion.a
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                          href={activity.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center px-4 py-2 rounded-lg bg-primary-50 dark:bg-primary-900/20 text-primary-600 dark:text-primary-400 hover:bg-primary-100 dark:hover:bg-primary-900/40 transition-colors"
+                        >
+                          <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                          </svg>
+                          Visit Website
+                        </motion.a>
+                      )}
                     </div>
                   </motion.div>
                 ))}
